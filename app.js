@@ -20,7 +20,7 @@ const getHtml = async () => {
 };
 
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 5000);
 
 app.use(express.static(path.join(__dirname, "src")))
 app.use('/image', express.static('./uploads')); //이미지 업로드
