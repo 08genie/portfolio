@@ -2339,7 +2339,8 @@ blockquote {
     top: 0;
     right: 0;
     bottom: 0;
-    background-color: #c26256;
+    background-image: url(/img/sidebar_background.jpg);
+    background-repeat: round;
     z-index: 99;
     padding: 30px 30px 10px 30px;
     text-align: center;
@@ -2413,7 +2414,7 @@ blockquote {
 
   ul.main-menu a {
     display: block;
-    color: #fff;
+    color: rgba(117, 117, 117, 0.9);
     padding: 12px 0;
     line-height: 21px;
     opacity: .7;
