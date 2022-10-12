@@ -3208,6 +3208,10 @@ h6 {
   padding: 0;
 }
 
+.project_date {
+  margin-left: 5%;
+}
+
 @media all and (max-width: 480px) {
   .post {
     flex-direction: column;
@@ -3223,11 +3227,27 @@ h6 {
 
   .model_sub_title {
     margin-top: 1rem;
+    flex-direction: column;
   }
 
   .entry-header {
     flex-direction: column-reverse;
   }
+
+  .entry-title {
+    margin: 0px 0 15px 0;
+  }
+
+  .project_date {
+    margin-left: 0;
+  }
+
+  .single-page-content {
+    height: 37rem;
+    border-radius: 15px;
+  }
+
+
 }
 
 .project_title {
