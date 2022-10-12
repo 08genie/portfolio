@@ -1,0 +1,41 @@
+<!-- Blog Subpage -->
+<section data-id="blog" class="animated-section">
+    <div class="section-content">
+        <div class="page-title">
+            <h2>Blog</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <div class="blog-masonry one-columns clearfix">
+
+                    <!-- Blog Post 1 -->
+                    <% if(data !="" ) {%>
+                        <% for(let i=0; i<data.length; i++){ %>
+                            <div class="item post-1">
+                                <div class="blog-card">
+                                    <div class="post-info">
+                                        <div class="post-date">
+                                            <%= data[i].dateTime %>
+                                        </div>
+                                        <a href="https://08genie.github.io<%= data[i].url %>">
+                                            <h4 class="blog-item-title">
+                                                <%= data[i].title %>
+                                            </h4>
+                                            <p>
+                                                <%= data[i].content %>
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } } %>
+                                <!-- End of Blog Post 1 -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- End of Blog Subpage -->
