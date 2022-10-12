@@ -2414,7 +2414,7 @@ blockquote {
 
   ul.main-menu a {
     display: block;
-    color: rgba(117, 117, 117, 0.9);
+    color: #646464;
     padding: 12px 0;
     line-height: 21px;
     opacity: .7;
