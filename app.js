@@ -33,18 +33,18 @@ var db = {
 
 };
 
-var conn = mysql.createConnection(db);
-conn.connect();
+/*var conn = mysql.createConnection(db);
+conn.connect();*/
 
 app.set('view engine', 'ejs'); //화면 engine을 ejs로 설정 (기본엔진)
 app.set('views', './views'); //view 경로 설정
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(session({
+/*app.use(session({
     secret: '!@#$%^&*', //세션 암호화
     store: new MySQLStore(db), //세션데이터를 저장하는 곳
     resave: false, //세션을 항상 저장할지 여부를 정하는값(false권장)
     saveUninitialized: false //초기화되지않은채 스토어에 저장 true
-}));
+}));*/
 
 app.get('/', async function (req, res) {
 
