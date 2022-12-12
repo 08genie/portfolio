@@ -11,9 +11,14 @@ const dbConfig = require('./src/db/mysql.js');
 /* 웹크롤링 */
 const axios = require("axios");
 const cheerio = require("cheerio");
-const getHtml = async () => {
+const getHtml = async (page) => {
     try {
-        return await axios.get("https://08genie.github.io/");
+        if (page == "page1") {
+            return await axios.get("https://08genie.github.io/");
+        } else {
+            return await axios.get("https://08genie.github.io/" + page);
+        }
+
     } catch (error) {
         console.error(error);
     }
@@ -56,41 +61,45 @@ app.get('/', async function (req, res) {
 });
 
 
-app.get('/trusee', async function (req, res) {
-
-    let blog = await get_blog();
-
-    res.render('trusee', { data: blog });
-
-});
-
-
 app.listen(app.get('port'), () => {
     console.log(app.get('port'), '번 포트에서 대기 중')
 })
 
 async function get_blog(url, data) {
-    //블로그 웹크롤링
-    let blog = await getHtml()
-        .then(html => {
-            let ulList = [];
-            const $ = cheerio.load(html.data);
-            const $bodyList = $("#post-list").children("div");
+    let page;
+    let blogList = [];
+    for (let i = 1; i < 4; i++) {
 
-            $bodyList.each(function (i, elem) {
-                ulList[i] = {
-                    title: $(this).find('h1 a').text(),
-                    url: $(this).find('h1 a').attr('href'),
-                    content: $(this).find('.post-content p').text(),
-                    dateTime: $(this).find('.post-meta  .mr-auto em').text(),
-                };
+        page = "page" + i;
+
+        //블로그 웹크롤링
+        blog = await getHtml(page)
+            .then(html => {
+                let ulList = [];
+                const $ = cheerio.load(html.data);
+                const $bodyList = $("#post-list").children("div");
+
+                $bodyList.each(function (i, elem) {
+                    ulList[i] = {
+                        title: $(this).find('h1 a').text(),
+                        url: $(this).find('h1 a').attr('href'),
+                        content: $(this).find('.post-content p').text(),
+                        dateTime: $(this).find('.post-meta  .mr-auto em').text(),
+                    };
+                });
+
+                const data = ulList.filter(n => n.title);
+                return data;
+            })
+            .then(blog_data => {
+                return blog_data;
             });
 
-            const data = ulList.filter(n => n.title);
-            return data;
-        })
-        .then(blog_data => {
-            return blog_data;
+        blog.forEach(function (item) {
+            blogList.push(item);
         });
-    return blog;
+
+    }
+
+    return blogList;
 };

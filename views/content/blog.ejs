@@ -18,7 +18,8 @@
                                         <div class="post-date">
                                             <%= data[i].dateTime %>
                                         </div>
-                                        <a href="https://08genie.github.io<%= data[i].url %>">
+                                        <a href="https://08genie.github.io<%= data[i].url %>"
+                                            onclick="window.open(this.href, '_blank'); return false;">
                                             <h4 class="blog-item-title">
                                                 <%= data[i].title %>
                                             </h4>

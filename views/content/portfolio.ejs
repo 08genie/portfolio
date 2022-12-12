@@ -15,10 +15,9 @@
                             <div class="post-info">
 
                                 <h4 class="blog-item-title portfolio_title">
-                                    <i class="fa fa-arrow-circle-right"></i> 포인트 거래 시스템 - 진행중
+                                    <i class="fa fa-arrow-circle-right"></i> 포인트 관리 시스템
                                 </h4>
-                                <p>포인트 이체, 선물 등 포인트 관리 시스템</p>
-
+                                <p>포인트 충전, 이체, 선물 , 제휴처 적립을 위한 포인트 관리 시스템</p>
                             </div>
                         </div>
                     </div>
@@ -77,9 +76,9 @@
 
     $('.btn-open-popup').click(function () {
         let idx = $(this).data("idx");
-        if (idx == 4) {
-            return;
-        }
+        /*  if (idx == 4) {
+              return;
+          }*/
         const modal = document.querySelector('.modal_content' + idx);
         modal.style.display = 'block';
     })

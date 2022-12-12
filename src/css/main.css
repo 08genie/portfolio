@@ -422,7 +422,7 @@ input[type="submit"]:focus {
 .header-photo img {
   max-width: 100%;
   background-color: #fff;
-  border: 3px solid #fff;
+  border: 2px solid #fff;
   border-radius: 300px;
 }
 
@@ -3011,14 +3011,14 @@ body {
 }
 
 .header-titles h2 {
-  color: #646464;
+  /*color: #646464;*/
   font-size: 32px;
   font-weight: 700;
 }
 
 .header-titles h4,
 .social-links ul li a {
-  color: rgba(117, 117, 117, 0.9);
+  /*color: rgba(117, 117, 117, 0.9);*/
 }
 
 h1,
@@ -3193,6 +3193,7 @@ h6 {
 .project_img {
   width: 100%;
   max-width: none;
+  margin-bottom: 2rem;
 }
 
 .single-page-content .post-content {
@@ -3270,3 +3271,39 @@ h6 {
 .item {
   width: 100%;
 }
+
+/* image modal */
+.img_modal {
+  display: none;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.img_modalBox {
+  top: 50%;
+  left: 50%;
+  position: sticky;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 1rem 1rem;
+}
+
+.post-thumbnail img:hover {
+  cursor: -webkit-zoom-in;
+}
+
+.img_modalBox img {
+  margin: auto;
+  border-radius: 10px;
+  height: 95vh;
+}
+
+/* image modal end */
